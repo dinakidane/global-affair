@@ -1,0 +1,61 @@
+.Row {
+    height: calc(100vh - 81px);
+}
+
+.Input {
+    background: #eaf4e2;
+    /* Light green matching .App background */
+    border: 1px solid #88b899;
+    /* Lighter green border */
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #3a593f;
+    /* Medium green text */
+    text-align: center;
+    padding: 10px;
+}
+
+.Header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2d7244;
+    /* Darker green */
+}
+
+.Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.Link span {
+    color: #3a593f;
+    /* Medium green */
+}
+
+.Container {
+    padding: 30px 10px;
+}
+
+.filler-image {
+    max-width: 100%; /* Ensures the image does not exceed the container's width */
+    max-height: 500px; /* Adjust to your desired maximum height */
+    width: auto; /* Keeps aspect ratio */
+    height: auto; /* Keeps aspect ratio */
+    display: block; /* Prevents inline elements like padding/margins from affecting layout */
+    margin: 0 auto; /* Optional: Centers the image horizontally */
+}
+
+.SignInCol {
+    height: 320px;
+}
+
+.SignUpCol {
+    height: 375px;
+}

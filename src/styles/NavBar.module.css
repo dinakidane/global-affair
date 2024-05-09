@@ -1,0 +1,13 @@
+.NavBar {
+    background-color: #eaf4e2; /* Light green to match .App background */
+    border: 1px solid #88b899; /* Lighter shade of green for the border */
+}
+
+.NavLink {
+    padding: 5px;
+    color: #3a593f; /* Medium green for nav links to match `a` color */
+}
+  
+.Active i {
+    color: #2d7244; /* Darker green matching the hover color of icons */
+}

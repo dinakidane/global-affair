@@ -1,0 +1,60 @@
+.App {
+    font-family: "DM Sans", sans-serif;
+    background-color: #eaf4e2; /* Light green background */
+    min-height: 100vh;
+  }
+
+  .Main {
+    padding-top: 81px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    color: #3a593f; /* Medium green for links */
+    transition: color ease-in-out 0.3s;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:hover i {
+    color: #2d7244; /* Darker green for hovered icons */
+    transition: color ease-in-out 0.3s;
+  }
+  
+  i {
+    color: #88b899; /* Lighter shade of green for icons */
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+  }
+  
+  i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #2d7244; /* Same darker green for hovered icons */
+  }
+
+  figure {
+    text-align: center;
+    display: inline-block;
+  }
+  
+  /* scrollbar */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
