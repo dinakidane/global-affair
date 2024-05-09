@@ -129,6 +129,8 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
+          height={380}
+          width={600}
           src={"https://content.api.news/v3/images/bin/4491bf978b849ce0b2f54b196c81cbd9"}
         />
       </Col>

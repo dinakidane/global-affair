@@ -43,14 +43,6 @@
     padding: 30px 10px;
 }
 
-.filler-image {
-    max-width: 100%; /* Ensures the image does not exceed the container's width */
-    max-height: 500px; /* Adjust to your desired maximum height */
-    width: auto; /* Keeps aspect ratio */
-    height: auto; /* Keeps aspect ratio */
-    display: block; /* Prevents inline elements like padding/margins from affecting layout */
-    margin: 0 auto; /* Optional: Centers the image horizontally */
-}
 
 .SignInCol {
     height: 320px;
@@ -59,3 +51,4 @@
 .SignUpCol {
     height: 375px;
 }
+
