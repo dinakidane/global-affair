@@ -12,9 +12,9 @@ const Post = (props) => {
     owner,
     profile_id,
     profile_image,
-    comments_count,
-    likes_count,
-    like_id,
+    replies_count,
+    favourites_count,
+    favourite_id,
     title,
     content,
     image,
@@ -33,7 +33,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            ? { ...post, favourites_count: post.favourites_count + 1, favourite_id: data.id }
             : post;
         }),
       }));
@@ -49,7 +49,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            ? { ...post, favourites_count: post.favourites_count - 1, favourite_id: null }
             : post;
         }),
       }));
@@ -86,7 +86,7 @@ const Post = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ) : like_id ? (
+          ) : favourite_id ? (
             <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
@@ -102,11 +102,11 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {likes_count}
+          {favourites_count}
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {comments_count}
+          {replies_count}
         </div>
       </Card.Body>
     </Card>
