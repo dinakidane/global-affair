@@ -1,6 +1,6 @@
 .Post {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
+    background-color: #eaf4e2; /* Light green background */
+    border: 1px solid #88b899; /* Light green border */
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
@@ -8,17 +8,18 @@
   
   .Post figure,
   h5 {
-    margin: 0 0;
+    margin: 0;
   }
   
   .Heart {
-    color: #f85032;
+    color: #3a593f; /* Medium green instead of red */
   }
   
   .Heart:hover {
-    color: #2142b2;
+    color: #2d7244; /* Darker green for hovered hearts */
   }
   
   .HeartOutline:hover {
-    color: #f85032;
+    color: #3a593f; /* Medium green instead of red, consistent with other heart hover */
   }
+  
