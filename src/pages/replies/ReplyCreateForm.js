@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-import styles from "../../styles/CommentCreateEditForm.module.css";
+import styles from "../../styles/ReplyCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
-function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+function ReplyCreateForm(props) {
+  const { post, setPost, setReplies, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -19,13 +19,13 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      const { data } = await axiosRes.post("/replies/", {
         content,
         post,
       });
-      setComments((prevComments) => ({
-        ...prevComments,
-        results: [data, ...prevComments.results],
+      setReplies((prevReplies) => ({
+        ...prevReplies,
+        results: [data, ...prevReplies.results],
       }));
       setPost((prevPost) => ({
         results: [
@@ -50,7 +50,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="my comment..."
+            placeholder="my reply..."
             as="textarea"
             value={content}
             onChange={handleChange}
@@ -69,4 +69,4 @@ function CommentCreateForm(props) {
   );
 }
 
-export default CommentCreateForm;
+export default ReplyCreateForm;

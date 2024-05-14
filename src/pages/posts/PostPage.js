@@ -8,9 +8,9 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
-import Comment from "../comments/Comment";
+import Reply from "../replies/Reply"
 
-import CommentCreateForm from "../comments/CommentCreateForm";
+import ReplyCreateForm from "../replies/ReplyCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostPage() {
@@ -19,17 +19,17 @@ function PostPage() {
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const [comments, setComments] = useState({ results: [] });
+  const [replies, setReplies] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }, { data: comments }] = await Promise.all([
+        const [{ data: post }, { data: replies }] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/comments/?post=${id}`),
+          axiosReq.get(`/replies/?post=${id}`),
         ]);
         setPost({ results: [post] });
-        setComments(comments);
+        setReplies(replies);
       } catch (err) {
         console.log(err);
       }
@@ -44,24 +44,24 @@ function PostPage() {
         <p>Popular profiles for mobile</p>
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>{currentUser ? (
-          <CommentCreateForm
+          <ReplyCreateForm
             profile_id={currentUser.profile_id}
             profileImage={profile_image}
             post={id}
             setPost={setPost}
-            setComments={setComments}
+            setReplies={setReplies}
           />
-        ) : comments.results.length ? (
-          "Comments"
+        ) : replies.results.length ? (
+          "Replies"
         ) : null}
-        {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment} />
+        {replies.results.length ? (
+            replies.results.map((reply) => (
+              <Reply key={reply.id} {...reply} />
             ))
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
+            <span>No replies yet, be the first to reply!</span>
           ) : (
-            <span>No comments... yet</span>
+            <span>No replies... yet</span>
           )}
         </Container>
       </Col>
