@@ -48,7 +48,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, favourites_count: post.favourites_count + 1, favourite_id: data.id }
+            ? { ...post, favourites_count: post.likes_count + 1, favourite_id: data.id }
             : post;
         }),
       }));
@@ -83,7 +83,8 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && (<MoreDropdown
+            {is_owner && postPage && (
+              <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
