@@ -56,7 +56,12 @@ function PostPage() {
         ) : null}
         {replies.results.length ? (
             replies.results.map((reply) => (
-              <Reply key={reply.id} {...reply} />
+              <Reply 
+                key={reply.id} 
+                {...reply}
+                setPost={setPost}
+                setReplies={setReplies} 
+              />
             ))
           ) : currentUser ? (
             <span>No replies yet, be the first to reply!</span>
