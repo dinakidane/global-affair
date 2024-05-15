@@ -8,10 +8,14 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
-import Reply from "../replies/Reply"
+import Reply from "../replies/Reply";
 
 import ReplyCreateForm from "../replies/ReplyCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 function PostPage() {
   const { id } = useParams();
@@ -55,14 +59,20 @@ function PostPage() {
           "Replies"
         ) : null}
         {replies.results.length ? (
-            replies.results.map((reply) => (
-              <Reply 
-                key={reply.id} 
-                {...reply}
-                setPost={setPost}
-                setReplies={setReplies} 
-              />
-            ))
+            <InfiniteScroll
+              children={replies.results.map((reply) => (
+                <Reply
+                  key={reply.id}
+                  {...reply}
+                  setPost={setPost}
+                  setReplies={setReplies}
+                />
+              ))}
+              dataLength={replies.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!replies.next}
+              next={() => fetchMoreData(replies, setReplies)}
+            />
           ) : currentUser ? (
             <span>No replies yet, be the first to reply!</span>
           ) : (
