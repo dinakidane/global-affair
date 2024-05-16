@@ -1,21 +1,42 @@
+/* Form container */
 .Form {
-    border: none;
-    border-bottom: 2px solid #88b899; /* Lighter green for the border */
-  }
-  
-  .Button {
-    border: none;
-    background-color: #2d7244; /* Darker green for the button background */
-    color: aliceblue; /* Keeping text color for contrast */
-    border-radius: 100px;
-    padding: 4px 10px;
-    min-width: 75px;
-    margin: 5px;
-  }
-  
-  .Button:hover {
-    cursor: pointer;
-    background-color: aliceblue; /* Switch to light text background on hover */
-    color: #2d7244; /* Dark green text on hover */
-  }
+  border: none;
+  border-bottom: 2px solid #5a8a5f; /* Darker green for the border */
+  padding: 20px 0; /* Added padding for spacing */
+  background-color: #eaf4e2; /* Light green background */
+  transition: border-color 0.3s ease;
+}
+
+.Form:hover {
+  border-bottom-color: #3e6840; /* Darker green border on hover */
+}
+
+/* Button styles */
+.Button {
+  border: 2px solid #2d7244; /* Added border to match button color */
+  background-color: #2d7244; /* Dark green for the button background */
+  color: aliceblue; /* Keeping text color for contrast */
+  border-radius: 50px; /* More pronounced rounded edges */
+  padding: 10px 20px; /* Increased padding for better spacing */
+  min-width: 100px; /* Increased minimum width for consistency */
+  margin: 10px; /* Increased margin for better spacing */
+  font-weight: bold; /* Bold text for emphasis */
+  text-transform: uppercase; /* Uppercase text for modern look */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.Button:hover {
+  cursor: pointer;
+  background-color: aliceblue; /* Switch to light text background on hover */
+  color: #2d7244; /* Dark green text on hover */
+  border-color: aliceblue; /* Match border color to background on hover */
+}
+
+/* Active button state */
+.Button:active {
+  background-color: #1a4d33; /* Darkest green for active state */
+  color: aliceblue; /* Keep text color for contrast */
+  border-color: #1a4d33; /* Match border color to background on active state */
+}
+
   

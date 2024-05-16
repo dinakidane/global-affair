@@ -37,14 +37,14 @@ const Profile = (props) => {
               className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
               onClick={() => handleUnsubscribe(profile)}
             >
-              unfollow
+              unsubscribe
             </Button>
           ) : (
             <Button
               className={`${btnStyles.Button} ${btnStyles.Black}`}
               onClick={() => handleSubscribe(profile)}
             >
-              follow
+              subscribe
             </Button>
           ))}
       </div>

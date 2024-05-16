@@ -1,22 +1,41 @@
+.SearchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
 .SearchBar input {
-    border-radius: 20px;
-    color: #3a593f; /* Medium green for text */
-    padding-left: 40px;
-    margin-bottom: 16px;
-    background-color: #eaf4e2; /* Light green background */
-    border: 1px solid #88b899; /* Lighter green border */
-  }
-  
-  .SearchIcon {
-    position: absolute;
-    font-size: 1.2rem;
-    padding: 9px;
-    padding-left: 15px;
-    color: #88b899; /* Lighter shade of green for the icon */
-  }
-  
-  .SearchIcon:hover {
-    cursor: default;
-    color: #3a593f; /* Medium green for hovered icon */
-  }
-  
+  border-radius: 0; /* Changed to a sharp rectangle */
+  color: #2e4625; /* Darker green for text */
+  padding: 10px 40px 10px 50px;
+  background-color: #d4e8cc; /* Slightly darker light green background */
+  border: 2px solid #5a8a5f; /* Darker green border */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.SearchBar input:focus {
+  background-color: #b8d8a8; /* Even darker light green background on focus */
+  color: #1f3319; /* Darkest green for text on focus */
+  border-color: #3e6840; /* Darkest green border on focus */
+  outline: none;
+}
+
+.SearchIcon {
+  position: absolute;
+  left: 10px;
+  font-size: 1.5rem;
+  color: #5a8a5f; /* Darker shade of green for the icon */
+  transition: color 0.3s ease;
+}
+
+.SearchIcon:hover {
+  cursor: pointer; /* Changed cursor to pointer */
+  color: #2e4625; /* Darker green for hovered icon */
+}
+
+.SearchBar:hover input {
+  background-color: #c9e2b7; /* Slightly darker light green background on hover */
+  border-color: #4d7b4e; /* Darker green border on hover */
+}

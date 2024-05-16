@@ -1,13 +1,40 @@
+/* Navigation bar container */
 .NavBar {
-    background-color: #eaf4e2; /* Light green to match .App background */
-    border: 1px solid #88b899; /* Lighter shade of green for the border */
-}
-
-.NavLink {
-    padding: 5px;
-    color: #3a593f; /* Medium green for nav links to match `a` color */
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #d4e8cc; /* Slightly darker light green background */
+    border: 2px solid #5a8a5f; /* Darker green border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 10px 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
   
-.Active i {
-    color: #2d7244; /* Darker green matching the hover color of icons */
-}
+  /* Navigation links */
+  .NavLink {
+    padding: 2px; /* Increased padding for better click area */
+    color: #2e4625; /* Darker green for nav links */
+    font-weight: bold; /* Bold text for emphasis */
+    text-transform: uppercase; /* Uppercase for a modern look */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .NavLink:hover {
+    color: #1f3319; /* Even darker green on hover */
+    background-color: #b8d8a8; /* Slightly darker green background on hover */
+    border-radius: 5px; /* Rounded edges on hover */
+  }
+  
+  /* Active navigation link with icon */
+  .Active i {
+    color: #1a4d33; /* Darkest green for active state */
+    transition: color 0.3s ease;
+  }
+  
+  /* Adding transition for NavBar hover */
+  .NavBar:hover {
+    background-color: #b8d8a8; /* Slightly darker green background on hover */
+    border-color: #4d7b4e; /* Darker green border on hover */
+  }
+  

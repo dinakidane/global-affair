@@ -1,54 +1,79 @@
+/* Full height row minus header height */
 .Row {
     height: calc(100vh - 81px);
-}
-
-.Input {
-    background: #eaf4e2;
-    /* Light green matching .App background */
-    border: 1px solid #88b899;
-    /* Lighter green border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f9f3; /* Slightly lighter green background */
+    padding: 20px; /* Added padding for spacing */
+  }
+  
+  /* Input field styles */
+  .Input {
+    background: #eaf4e2; /* Light green matching .App background */
+    border: 2px solid #5a8a5f; /* Darker green border */
     box-sizing: border-box;
-    border-radius: 2px;
-    color: #3a593f;
-    /* Medium green text */
+    border-radius: 8px; /* More pronounced rounded edges */
+    color: #2e4625; /* Darker green text */
     text-align: center;
-    padding: 10px;
-}
-
-.Header {
+    padding: 15px; /* Increased padding for better spacing */
+    font-size: 14px; /* Adjusted font size for consistency */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .Input:focus {
+    background-color: #d4e8cc; /* Slightly darker green background on focus */
+    border-color: #3e6840; /* Darker green border on focus */
+    color: #1f3319; /* Even darker green text on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Header styles */
+  .Header {
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 20px; /* Increased font size */
+    line-height: 24px; /* Adjusted line height */
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #2d7244;
-    /* Darker green */
-}
-
-.Link {
+    color: #2d7244; /* Darker green */
+    margin-bottom: 20px; /* Added margin for spacing */
+  }
+  
+  /* Link styles */
+  .Link {
     text-decoration: none;
     text-align: center;
     display: block;
-    margin: auto;
-}
-
-.Link span {
-    color: #3a593f;
-    /* Medium green */
-}
-
-.Container {
-    padding: 30px 10px;
-}
-
-
-.SignInCol {
-    height: 320px;
-}
-
-.SignUpCol {
-    height: 375px;
-}
+    margin: 20px auto; /* Added margin for spacing */
+    font-size: 16px; /* Adjusted font size */
+    transition: color 0.3s ease;
+  }
+  
+  .Link span {
+    color: #3a593f; /* Medium green */
+  }
+  
+  .Link:hover span {
+    color: #2e4625; /* Darker green on hover */
+  }
+  
+  /* Container styles */
+  .Container {
+    padding: 40px 20px; /* Increased padding for better spacing */
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded edges for modern look */
+  }
+  
+  /* Column height adjustments */
+  .SignInCol {
+    height: 340px; /* Slightly increased height */
+  }
+  
+  .SignUpCol {
+    height: 395px; /* Slightly increased height */
+  }
+  
 

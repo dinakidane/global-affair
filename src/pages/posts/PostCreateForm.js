@@ -72,8 +72,9 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
+
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>City & Country</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -88,7 +89,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -110,7 +111,7 @@ function PostCreateForm() {
         cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        create
+        post
       </Button>
     </div>
   );

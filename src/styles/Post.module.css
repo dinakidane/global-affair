@@ -1,25 +1,40 @@
+/* Post container */
 .Post {
-    background-color: #eaf4e2; /* Light green background */
-    border: 1px solid #88b899; /* Light green border */
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Post figure,
-  h5 {
-    margin: 0;
-  }
-  
-  .Heart {
-    color: #3a593f; /* Medium green instead of red */
-  }
-  
-  .Heart:hover {
-    color: #2d7244; /* Darker green for hovered hearts */
-  }
-  
-  .HeartOutline:hover {
-    color: #3a593f; /* Medium green instead of red, consistent with other heart hover */
-  }
+  background-color: #eaf4e2; /* Light green background */
+  border: 2px solid #5a8a5f; /* Darker green border */
+  border-radius: 10px; /* More pronounced rounded edges */
+  margin-bottom: 20px; /* Increased margin for spacing */
+  padding: 20px; /* Added padding for better content spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.Post:hover {
+  background-color: #d4e8cc; /* Slightly darker green background on hover */
+  border-color: #3e6840; /* Darker green border on hover */
+}
+
+/* Reset margin for figure and h5 elements within Post */
+.Post figure,
+.Post h5 {
+  margin: 0;
+}
+
+/* Heart icon styles */
+.Heart {
+  color: #3a593f; /* Medium green instead of red */
+  font-size: 1.5rem; /* Increased size for better visibility */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+}
+
+.Heart:hover {
+  color: #2d7244; /* Darker green for hovered hearts */
+  transform: scale(1.2); /* Slightly increase size on hover */
+}
+
+.HeartOutline:hover {
+  color: #2d7244; /* Darker green consistent with other heart hover */
+}
+
   

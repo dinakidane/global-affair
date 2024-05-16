@@ -79,7 +79,7 @@ function ProfilePage() {
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.subscribers_count}</div>
-              <div>followers</div>
+              <div>subscribers</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>

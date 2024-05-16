@@ -36,7 +36,7 @@ function App() {
             path="/feed"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or follow a user."
+                message="No results found. Adjust the search keyword or subscribe to a user."
                 filter={`owner__subscribed__owner__profile=${profile_id}&`}
               />
             )}
@@ -46,7 +46,7 @@ function App() {
             path="/liked"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
+                message="No results found. Adjust the search keyword or favourite a post."
                 filter={`favourites__owner__profile=${profile_id}&ordering=-favourites__created_at&`}
               />
             )}
