@@ -93,7 +93,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="45n" />
+            <img src={logo} alt="logo" height="45"/>
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
@@ -110,7 +110,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i>A Global Affair
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

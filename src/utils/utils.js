@@ -36,7 +36,7 @@ export const subscribeHelper = (profile, clickedProfile, following_id) => {
 export const unsubscribeHelper = (profile, clickedProfile) => {
   return profile.id === clickedProfile.id
     ? // This is the profile I clicked on,
-      // update its followers count and set its following id
+      // update its subscribers count and set its following id
       {
         ...profile,
         subscribers_count: profile.subscribers_count - 1,

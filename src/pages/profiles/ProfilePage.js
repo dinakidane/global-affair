@@ -95,14 +95,14 @@ function ProfilePage() {
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                 onClick={() => handleSubscribe(profile)}
               >
-                unfollow
+                unsubscribe
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
                 onClick={() => (profile)}
               >
-                follow
+                subscribe
               </Button>
             ))}
         </Col>
