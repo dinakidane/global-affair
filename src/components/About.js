@@ -1,7 +1,7 @@
 import React from 'react';
-import './AboutSection.css'; // Ensure you create this CSS file for styling
+import styles from '../styles/About.module.css'
 
-const AboutSection = () => {
+const About = () => {
     return (
         <div className="about-section">
             <h1>Welcome to A Global Affair!</h1>
@@ -21,4 +21,4 @@ const AboutSection = () => {
     );
 };
 
-export default AboutSection;
+export default About;

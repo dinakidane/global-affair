@@ -17,7 +17,16 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import About from './About';
 
+const PostsPage = () => {
+  return (
+      <div className="posts-page">
+          <About />
+          {/* Render posts list or other content here */}
+      </div>
+  );
+};
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });

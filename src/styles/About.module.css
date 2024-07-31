@@ -1,0 +1,30 @@
+.aboutSection {
+    background-color: #eaf4f0; /* Light green background */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50; /* Dark text color for contrast */
+    font-family: 'Arial, sans-serif';
+}
+
+.aboutHeading {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #27ae60; /* Green color for heading */
+}
+
+.aboutText {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #2ecc71; /* Bright green for emphasis */
+}
+
+.emphasized {
+    font-style: italic;
+    color: #2c3e50; /* Dark text color for emphasis */
+}
