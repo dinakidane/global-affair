@@ -17,6 +17,7 @@ const AboutPage = () => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get("/reviews/");
+        console.log(response.data)
         setReviews(response.data);
       } catch (err) {
         console.log(err);
@@ -140,7 +141,7 @@ const AboutPage = () => {
       <div className={styles.ReviewSidebar}>
         <h2>User Reviews</h2>
         <div className={styles.Reviews}>
-          {reviews.length > 0 ? (
+          {reviews.results.length ? (
             reviews.map((review) => (
               <div key={review.id} className={styles.Review}>
                 <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
