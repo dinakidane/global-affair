@@ -31,7 +31,7 @@ const AboutPage = () => {
     try {
       await axios.post("/reviews/", newReview);
       setReviewMessage("Thank you! Your review has been posted.");
-      setNewReview({ rating: "", text: "" }); // Reset the form after submission
+      setNewReview({ rating: "", content: "" }); // Reset the form after submission
     } catch (err) {
       console.log(err);
     }
