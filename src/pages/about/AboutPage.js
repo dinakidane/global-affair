@@ -144,7 +144,7 @@ const AboutPage = () => {
             reviews.map((review) => (
               <div key={review.id} className={styles.Review}>
                 <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
-                <p>{review.text}</p>
+                <p>{review.content}</p>
               </div>
             ))
           ) : (
