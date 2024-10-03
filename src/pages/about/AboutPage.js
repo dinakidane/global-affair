@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext"; // Corrected import path
 import axios from "axios";
@@ -30,11 +29,17 @@ const AboutPage = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/reviews/", newReview);
+      // Ensure you're sending the correct fields required by your backend
+      const response = await axios.post("/reviews/", {
+        rating: newReview.rating,
+        content: newReview.content,
+      });
       setReviewMessage("Thank you! Your review has been posted.");
       setNewReview({ rating: "", content: "" }); // Reset the form after submission
+      setReviews((prevReviews) => [response.data, ...prevReviews]); // Append new review to reviews list
     } catch (err) {
-      console.log(err);
+      console.log(err.response?.data || err);
+      setReviewMessage("Failed to post review. Please try again.");
     }
   };
 
