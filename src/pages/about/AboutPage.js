@@ -141,15 +141,15 @@ const AboutPage = () => {
       <div className={styles.ReviewSidebar}>
         <h2>User Reviews</h2>
         <div className={styles.Reviews}>
-          {reviews.results.length ? (
-            reviews.map((review) => (
-              <div key={review.id} className={styles.Review}>
-                <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
-                <p>{review.content}</p>
-              </div>
-            ))
-          ) : (
-            <p>No reviews yet. Be the first to share your experience!</p>
+          {reviews.length ? (
+              reviews.map((review) => (
+                <div key={review.id} className={styles.Review} > 
+                  <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
+                  <p>{review.content}</p>
+                </div>
+              ))
+            ) : (
+            <p>No reviews yet. Be the first to share your experience!</p> 
           )}
         </div>
       </div>
