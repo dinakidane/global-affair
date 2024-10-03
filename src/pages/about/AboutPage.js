@@ -87,7 +87,7 @@ const AboutPage = () => {
               </select>
               <label>Review:</label>
               <textarea
-                value={newReview.text}
+                value={newReview.content}
                 onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
                 required
               />
