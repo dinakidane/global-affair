@@ -117,6 +117,14 @@ const NavBar = () => {
               <i className="fas fa-home"></i>A Global Affair
             </NavLink>
 
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/about"
+            >
+              <i className="fas fa-info-circle"></i> About
+            </NavLink>
+
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
