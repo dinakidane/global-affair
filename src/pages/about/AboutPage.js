@@ -7,7 +7,7 @@ import styles from "../../styles/AboutPage.module.css";
 const AboutPage = () => {
   const currentUser = useCurrentUser();
   const [reviews, setReviews] = useState([]);
-  const [newReview, setNewReview] = useState({ rating: "", text: "" });
+  const [newReview, setNewReview] = useState({ rating: "", content: "" });
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [reviewMessage, setReviewMessage] = useState("");
   const [contactMessage, setContactMessage] = useState("");
@@ -88,7 +88,7 @@ const AboutPage = () => {
               <label>Review:</label>
               <textarea
                 value={newReview.text}
-                onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
+                onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
                 required
               />
               <button type="submit">Post Review</button>
