@@ -1,58 +1,156 @@
-// src/pages/about/AboutPage.js
-import React from "react";
+// src/pages/AboutPage.js
+
+import React, { useState, useEffect } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext"; // Corrected import path
+import axios from "axios";
 import styles from "../../styles/AboutPage.module.css";
 
 const AboutPage = () => {
+  const currentUser = useCurrentUser();
+  const [reviews, setReviews] = useState([]);
+  const [newReview, setNewReview] = useState({ rating: "", text: "" });
+  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
+  const [reviewMessage, setReviewMessage] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+
+  // Fetch reviews from the backend
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get("/reviews/");
+        setReviews(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchReviews();
+  }, []);
+
+  // Handle review submission
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/reviews/", newReview);
+      setReviewMessage("Thank you! Your review has been posted.");
+      setNewReview({ rating: "", text: "" }); // Reset the form after submission
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Handle contact form submission
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/contact/", contactForm);
+      setContactMessage("Your enquiry/complaint has been sent. We'll review it shortly.");
+      setContactForm({ name: "", email: "", message: "" }); // Reset the form after submission
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={styles.AboutPage}>
-      <h1>About A Global Affair</h1>
-      
-      <section className={styles.Section}>
-        <h2>What We Do</h2>
-        <p>
-          Welcome to <strong>A Global Affair</strong>, a community-driven platform created for travel enthusiasts from around the world! Our goal is to bring people together who share a love for exploring new places, cultures, and experiences. Whether you're passionate about discovering hidden gems in your local area or embarking on epic international adventures, A Global Affair is the place to share your stories and find inspiration.
-        </p>
-      </section>
+      <div className={styles.MainContent}>
+        <h1>About A Global Affair</h1>
+        {/* About section */}
+        <section className={styles.Section}>
+          <p>
+            A Global Affair is a platform designed for travel lovers to share their experiences, post pictures of their favorite destinations, and connect with like-minded travelers. Whether you're planning your next adventure or reminiscing about past travels, this is the place to inspire and be inspired!
+          </p>
+          <p>
+            Join our community to discover hidden gems, share travel tips, and connect with fellow adventurers who share your passion for exploration.
+          </p>
+        </section>
 
-      <section className={styles.Section}>
-        <h2>Share Your Travel Experiences</h2>
-        <p>
-          On A Global Affair, you can post photos and stories from your favorite travel destinations. Share tips, recommendations, and experiences with like-minded travelers, and inspire others to visit the places you've explored. Whether it's a bustling city, a remote village, or a breathtaking natural landscape, your experiences matter here.
-        </p>
-      </section>
+        {/* Submit Review Form - Only for logged in users */}
+        {currentUser && (
+          <section className={styles.Section}>
+            <h2>Submit a Review</h2>
+            <form onSubmit={handleReviewSubmit}>
+              <label>Rating (1-5):</label>
+              <select
+                value={newReview.rating}
+                onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })}
+                required
+              >
+                <option value="">Select a rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <label>Review:</label>
+              <textarea
+                value={newReview.text}
+                onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
+                required
+              />
+              <button type="submit">Post Review</button>
+            </form>
+            {reviewMessage && <p>{reviewMessage}</p>}
+          </section>
+        )}
 
-      <section className={styles.Section}>
-        <h2>Connect with Other Travelers</h2>
-        <p>
-          Our platform is more than just a travel blog—it's a community. Follow other travelers, leave comments on their posts, and engage in discussions about your shared passion. You can even mark your favorite posts and keep track of destinations you'd love to visit one day.
-        </p>
-      </section>
+        {/* Contact Form - Only for logged in users */}
+        {currentUser && (
+          <section className={styles.Section}>
+            <h2>Contact Us</h2>
+            <form onSubmit={handleContactSubmit}>
+              <label>Name:</label>
+              <input
+                type="text"
+                value={contactForm.name}
+                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                required
+              />
+              <label>Email:</label>
+              <input
+                type="email"
+                value={contactForm.email}
+                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                required
+              />
+              <label>Message:</label>
+              <textarea
+                value={contactForm.message}
+                onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                required
+              />
+              <button type="submit">Send Message</button>
+            </form>
+            {contactMessage && <p>{contactMessage}</p>}
+          </section>
+        )}
 
-      <section className={styles.Section}>
-        <h2>Features</h2>
-        <ul>
-          <li><strong>Post your travel stories:</strong> Share photos, tips, and detailed stories from your journeys.</li>
-          <li><strong>Discover new places:</strong> Browse posts from other travelers and explore their favorite destinations.</li>
-          <li><strong>Interact with the community:</strong> Like, comment, and save posts that inspire you.</li>
-          <li><strong>Favourites:</strong> Keep a list of your favorite travel experiences and posts.</li>
-        </ul>
-      </section>
+        {!currentUser && (
+          <p>
+            <strong>Note:</strong> Please <a href="/signin">sign in</a> to submit a review or fill out the contact form.
+          </p>
+        )}
+      </div>
 
-      <section className={styles.Section}>
-        <h2>Why Join Us?</h2>
-        <p>
-          A Global Affair is designed for those who believe that travel is more than just a hobby—it's a way of life. Here, you’ll find a supportive community ready to share in your love of adventure, inspire your next journey, and provide a platform for you to document your experiences for others to enjoy. Join us and be part of a global network of passionate explorers!
-        </p>
-      </section>
-
-      <section className={styles.Section}>
-        <h2>Contact Us</h2>
-        <p>
-          If you have any questions, feedback, or issues, don’t hesitate to reach out through our <strong>Contact Form</strong>. We value your input and are always looking for ways to improve the platform for our community.
-        </p>
-      </section>
+      {/* Sidebar for Reviews */}
+      <div className={styles.ReviewSidebar}>
+        <h2>User Reviews</h2>
+        <div className={styles.Reviews}>
+          {reviews.length > 0 ? (
+            reviews.map((review) => (
+              <div key={review.id} className={styles.Review}>
+                <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
+                <p>{review.text}</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews yet. Be the first to share your experience!</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default AboutPage;
+
