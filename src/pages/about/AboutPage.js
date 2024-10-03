@@ -16,8 +16,7 @@ const AboutPage = () => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get("/reviews/");
-        console.log(response.data)
-        setReviews(response.data);
+        setReviews(response.data.results); // Assuming the response has a "results" array
       } catch (err) {
         console.log(err);
       }
@@ -27,17 +26,20 @@ const AboutPage = () => {
 
   // Handle review submission
   const handleReviewSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
     try {
-      // Ensure you're sending the correct fields required by your backend
+      // Send the review data to the backend
       const response = await axios.post("/reviews/", {
         rating: newReview.rating,
         content: newReview.content,
       });
+
+      // Show success message and reset form
       setReviewMessage("Thank you! Your review has been posted.");
-      setNewReview({ rating: "", content: "" }); // Reset the form after submission
-      setReviews((prevReviews) => [response.data, ...prevReviews]); // Append new review to reviews list
+      setNewReview({ rating: "", content: "" }); // Reset the form
+      setReviews((prevReviews) => [response.data, ...prevReviews]); // Add new review to reviews list
     } catch (err) {
+      // Handle errors
       console.log(err.response?.data || err);
       setReviewMessage("Failed to post review. Please try again.");
     }
@@ -45,7 +47,7 @@ const AboutPage = () => {
 
   // Handle contact form submission
   const handleContactSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission behavior
     try {
       await axios.post("/contact/", contactForm);
       setContactMessage("Your enquiry/complaint has been sent. We'll review it shortly.");
@@ -147,14 +149,14 @@ const AboutPage = () => {
         <h2>User Reviews</h2>
         <div className={styles.Reviews}>
           {reviews.length ? (
-              reviews.map((review) => (
-                <div key={review.id} className={styles.Review} > 
-                  <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
-                  <p>{review.content}</p>
-                </div>
-              ))
-            ) : (
-            <p>No reviews yet. Be the first to share your experience!</p> 
+            reviews.map((review) => (
+              <div key={review.id} className={styles.Review}>
+                <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
+                <p>{review.content}</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews yet. Be the first to share your experience!</p>
           )}
         </div>
       </div>
@@ -163,4 +165,5 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
 
