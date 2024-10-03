@@ -1,57 +1,104 @@
-/* src/styles/AboutPage.module.css */
 
+/* Main container for the About page */
 .AboutPage {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 20px;
-  background-color: #f9f9f9;
-  max-width: 1200px;
-  margin: 0 auto;
+  background-color: #f9f9f9; /* Light background for the page */
 }
 
+/* Main content area styling */
 .MainContent {
-  width: 65%;
+  flex: 3; /* Take up more space compared to the sidebar */
+  padding: 20px;
+  background-color: #ffffff; /* White background for the main content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.ReviewSidebar {
-  width: 30%;
-  padding-left: 20px;
-  border-left: 2px solid #ddd;
-}
-
+/* Individual sections within the main content */
 .Section {
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Space between sections */
 }
 
-.Reviews {
-  margin-top: 20px;
+/* Styling for form inputs */
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-.Review {
-  border: 1px solid #ddd;
+label {
+  margin-top: 10px;
+  font-weight: bold; /* Bold labels */
+}
+
+input,
+select,
+textarea {
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
-textarea, select, input {
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  margin-top: 5px;
 }
 
 button {
-  padding: 8px 16px;
-  background-color: #5a8a5f;
-  color: white;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #5a8a5f; /* Main theme color */
+  color: white; /* White text */
   border: none;
-  border-radius: 4px;
+  border-radius: 4px; /* Rounded corners */
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition effect */
 }
 
 button:hover {
-  background-color: #4d7b4e;
+  background-color: #4d7b4e; /* Darker green on hover */
+}
+
+/* Review sidebar styling */
+.ReviewSidebar {
+  flex: 1; /* Take up less space than the main content */
+  margin-left: 20px; /* Space between content and sidebar */
+  padding: 20px;
+  background-color: #ffffff; /* White background for the sidebar */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styling for individual reviews */
+.Reviews {
+  margin-top: 10px;
+}
+
+.Review {
+  border-bottom: 1px solid #e0e0e0; /* Light border for separation */
+  padding: 10px 0; /* Space around each review */
+}
+
+.Review:last-child {
+  border-bottom: none; /* Remove bottom border for last review */
+}
+
+h1 {
+  color: #2e4625; /* Darker green for headings */
+}
+
+h2 {
+  color: #1a4d33; /* Darker green for section titles */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .AboutPage {
+      flex-direction: column; /* Stack main content and sidebar on smaller screens */
+  }
+
+  .ReviewSidebar {
+      margin-left: 0; /* Remove margin for mobile */
+      margin-top: 20px; /* Add top margin for separation */
+  }
 }
 
   

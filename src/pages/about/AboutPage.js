@@ -1,4 +1,3 @@
-// src/pages/AboutPage.js
 
 import React, { useState, useEffect } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext"; // Corrected import path
@@ -60,7 +59,10 @@ const AboutPage = () => {
             A Global Affair is a platform designed for travel lovers to share their experiences, post pictures of their favorite destinations, and connect with like-minded travelers. Whether you're planning your next adventure or reminiscing about past travels, this is the place to inspire and be inspired!
           </p>
           <p>
-            Join our community to discover hidden gems, share travel tips, and connect with fellow adventurers who share your passion for exploration.
+            Our community thrives on shared stories and breathtaking images that showcase the beauty of our world. From the snow-capped mountains to serene beaches, we believe that every traveler has a unique perspective to offer. Join our vibrant community to discover hidden gems, share travel tips, and connect with fellow adventurers who share your passion for exploration.
+          </p>
+          <p>
+            In addition to sharing your experiences, you can engage with others through comments, likes, and interactions on posts. We encourage our users to support each other by providing feedback and sharing insights based on their journeys. Whether you're a seasoned traveler or just starting your adventures, there's a place for everyone at A Global Affair.
           </p>
         </section>
 
@@ -68,6 +70,7 @@ const AboutPage = () => {
         {currentUser && (
           <section className={styles.Section}>
             <h2>Submit a Review</h2>
+            <p>Your feedback is valuable to us! Please take a moment to share your thoughts about our platform. Your review will not only help us improve but also assist other users in their travel planning. Rate us on a scale of 1 to 5 and leave a message about your experience!</p>
             <form onSubmit={handleReviewSubmit}>
               <label>Rating (1-5):</label>
               <select
@@ -98,6 +101,7 @@ const AboutPage = () => {
         {currentUser && (
           <section className={styles.Section}>
             <h2>Contact Us</h2>
+            <p>If you have any questions, suggestions, or concerns, feel free to reach out to us through the contact form below. We value your input and aim to respond to all inquiries promptly. Please provide your name, email, and a brief message, and we'll get back to you as soon as possible!</p>
             <form onSubmit={handleContactSubmit}>
               <label>Name:</label>
               <input
