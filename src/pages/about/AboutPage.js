@@ -57,6 +57,19 @@ const AboutPage = () => {
     }
   };
 
+  // Handle review deletion
+  const handleDeleteReview = async (reviewId) => {
+    try {
+      await axios.delete(`/reviews/${reviewId}/`);
+      // Remove the deleted review from the reviews array
+      setReviews((prevReviews) => prevReviews.filter((review) => review.id !== reviewId));
+      setReviewMessage("Your review has been deleted.");
+    } catch (err) {
+      console.log(err.response?.data || err);
+      setReviewMessage("Failed to delete review. Please try again.");
+    }
+  };
+
   return (
     <div className={styles.AboutPage}>
       <div className={styles.MainContent}>
@@ -153,6 +166,9 @@ const AboutPage = () => {
               <div key={review.id} className={styles.Review}>
                 <strong>{review.owner}</strong> rated <strong>{review.rating}/5</strong>
                 <p>{review.content}</p>
+                {currentUser && currentUser.username === review.owner && (
+                  <button onClick={() => handleDeleteReview(review.id)}>Delete</button>
+                )}
               </div>
             ))
           ) : (
@@ -165,5 +181,6 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
 
 
