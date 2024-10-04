@@ -15,6 +15,7 @@
     padding: 2px; /* Increased padding for better click area */
     color: #2e4625; /* Darker green for nav links */
     font-weight: bold; /* Bold text for emphasis */
+    font-size: 14px; /* Smaller font size for better clarity */
     text-transform: uppercase; /* Uppercase for a modern look */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease, background-color 0.3s ease;
